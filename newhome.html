@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mercy Portfolio</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+   
+
+    /* General */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #1b263b;
+      color: white;
+      line-height: 1.6;
+      scroll-padding-top: 70px;
+    }
+
+    a.nav-link {
+      color: white;
+      font-weight: 600;
+    }
+
+    a.nav-link:hover {
+      color: aqua;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #222;
+      padding: 1rem 2rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 100;
+    }
+
+    /* Sections */
+    section {
+      padding: 60px 15px;
+    }
+    /* Fix anchor scrolling for fixed navbar */
+section {
+  scroll-margin-top: 100px; /* Adjust based on navbar height */
+}
+
+/* Make About section bigger */
+#about {
+  min-height: 100vh; /* Full viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+    /* Home */
+    #home {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      flex-direction: column;
+    }
+
+    #home .paragraph {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: 2px;
+    }
+
+    #home .paragraph1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: aqua;
+      margin-bottom: 1rem;
+    }
+
+    .intern p {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .intern span {
+      font-weight: 600;
+    }
+
+    .profile-img {
+      width: 100%;
+      max-width: 300px;
+      height: 350px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top-center;
+      border: 4px solid white;
+      box-shadow: 0 5px 20px rgba(176, 3, 3, 0.4);
+      margin: 20px auto;
+      display: block;
+    }
+
+    /* About */
+    #about .about-card {
+      background-color: #1e2a44;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      bottom: 50px;
+    }
+
+    #about .about-card img {
+      border-radius: 50%;
+      width: 200px;
+      height: 250px;
+      object-fit: cover;
+      border: 3px solid #fff;
+    }
+
+    #about .about-content {
+      color: white;
+      font-size: 1.1rem;
+    }
+
+    #about .about-content h3 {
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    #about .about-content p {
+      color: #00bfff;
+      margin-bottom: 15px;
+    }
+
+
+    /* Projects */
+    .projects-container .card-project {
+      background-color: #222;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      border-radius: 10px;
+      color: white;
+    }
+
+    .projects-container .project-title {
+      color: aqua;
+      font-weight: 700;
+    }
+
+    .projects-container p {
+      margin-bottom: 0.5rem;
+    }
+ 
+
+
+
+    /* Skills Section */
+    #skills .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    #skills .card-skill {
+      background: #0f1b33;
+      padding: 20px;
+      text-align: center;
+      border-radius: 12px;
+      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #skills .card-skill:hover {
+      transform: translateY(-10px);
+      box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.8);
+    }
+
+    #skills .card-skill img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      margin-bottom: 15px;
+    }
+
+    #skills .card-skill p {
+      color: #fff;
+      font-weight: bold;
+    }
+
+
+
+    /* Contact */
+    #contact form input,
+    #contact form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 5px;
+    }
+
+    #contact form button {
+      background-color: aqua;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      color:black;
+      font-weight: 700;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.2s ease;
+    }
+
+    #contact form button:hover {
+      color: white;
+      background-color: #00b8d4;
+    }
+   
+
+    @media screen and (max-width: 768px) {
+      #about .about-card {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      #about .about-card img {
+        margin-bottom: 20px;
+      }
+    }
+    .paragraph1{ 
+    position: relative;
+    top: 10px;
+    padding-left: 20px;
+    font-size: 40px;
+    color:aqua;
+    overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid black;
+  width: 0;
+  animation: typing 2s steps(20, end) infinite;
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 25ch; 
+  }
+}
+
+    
+  </style>
+</head>
+
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Portfolio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav" >
+       
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#project">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      
+      </div>
+    </div>
+  </nav>
+
+  <!-- Home -->
+  <section id="home">
+    <p class="paragraph">HELLO, This is MERCY</p>
+    <p class="paragraph1">FULL STACK DEVELOPER</p>
+    <div class="intern">
+      <p><span  style="color: #00eeff;">Python Full Stack</span> <span>intern at Trinity Technology.</span></p>
+      <p><span>Data Science</span> <span style="color: aqua;">intern at Pantech.</span></p>
+    </div>
+    <img src="me.jpg" alt="Mercy" class="profile-img">
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="about-card">
+      <img src="me.jpg" alt="Mercy Profile">
+      <div class="about-content">
+        <h3>Passion:</h3>
+        <p>Full Stack Development</p>
+        <h3>Skills:</h3>
+        <p>Building web applications with a strong engineering foundation</p>
+        <h3>Focus:</h3>
+        <p>Creating innovative solutions that connect hardware and software</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="project" class="projects-container">
+    <div class="container">
+      <h2 class="text-center mb-4">Projects</h2>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="card-project">
+            <h3 class="project-title">🔒 Laser Security System</h3>
+            <p class="text-info fw-bold">Triggers alert when a laser beam is broken.</p>
+            <p><strong class="text-info">Tech:</strong> Arduino UNO, LDR, Laser Emitter, Buzzer, LEDs</p>
+            <p><strong class="text-info">Software:</strong> Arduino IDE</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card-project">
+            <h3 class="project-title">🍔 Food Delivery App</h3>
+            <p class="text-info fw-bold">Order, track, and enjoy your favorite meals.</p>
+            <p><strong class="text-info">Tech:</strong> HTML, CSS, JS, Firebase</p>
+            <p><strong class="text-info">Features:</strong> Live menu, Cart, Order tracking</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card-project">
+            <h3 class="project-title">💼 Portfolio Website</h3>
+            <p class="text-info fw-bold">Personal website with projects, skills, and contact info.</p>
+            <p><strong class="text-info">Tech:</strong> HTML, CSS, Bootstrap,JS,node.js,MongoDB</p>
+            <p><strong class="text-info">Components:</strong> Responsive design, Contact form</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card-project">
+            <h3 class="project-title">📿 Personal Anti-Loss System</h3>
+            <p class="text-info fw-bold">Alerts when gold is moved or lost.</p>
+            <p><strong class="text-info">Tech:</strong> Arduino UNO, LDR Module, Laser Emitter, Buzzer, LEDs</p>
+            <p><strong class="text-info">Software:</strong> Arduino IDE</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2 class="text-center mb-4">My Skills</h2>
+    <div class="container">
+      <div class="card-skill"><img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" alt="HTML"><p>HTML</p></div>
+      <div class="card-skill"><img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="CSS"><p>CSS</p></div>
+      <div class="card-skill"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="JavaScript"><p>JavaScript</p></div>
+      <div class="card-skill"><img src="https://cdn-icons-png.flaticon.com/512/1126/1126012.png" alt="React"><p>React</p></div>
+      <div class="card-skill"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png" alt="Python"><p>Python</p></div>
+      <div class="card-skill"><img src="https://cdn-icons-png.flaticon.com/512/919/919837.png" alt="Django"><p>Django</p></div>
+      <!-- <div class="card-skill"><img src="https://cdn-icons-png.flaticon.com/512/2772/2772128.png" alt="SQL"><p>SQL</p></div> -->
+       <div class="card-skill"><img src="c:\Users\mercy\Downloads\mongo-removebg-preview.png" alt="">Mongodb</div>
+     <div class="card-skill"><img src="https://cdn-icons-png.flaticon.com/512/919/919825.png" alt="Node.js"><p>Node JS</p></div>
+      <div class="card-skill"><img src="https://cdn-icons-png.flaticon.com/512/919/919831.png" alt="jQuery"><p>jQuery</p></div>
+      <div class="card-skill"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968672.png" alt="Bootstrap"><p>Bootstrap</p></div>
+      <div class="card-skill"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968381.png" alt="Flask"><p>Flask</p></div>
+      <div class="card-skill"><img src="https://cdn-icons-png.flaticon.com/512/919/919836.png" alt="MySQL"><p>MySQL</p></div>
+    </div>
+    
+  </section>
+  <!-- contact  -->
+ <section id="contact" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Contact Me</h2>
+    <div class="row"> 
+      <!--Contact Form -->
+       <div class="col-md-6 mb-4">
+        <form id="contactForm">
+          <div class="mb-3">
+            <input type="text" id="name" name="name" class="form-control" placeholder="Enter Your Name" required>
+          </div>
+          <div class="mb-3">
+            <input type="email" id="email" name="email" class="form-control" placeholder="Enter Your Email" required>
+          </div>
+          <div class="mb-3">
+            <textarea id="message" name="message" class="form-control" placeholder="Your message..." rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Submit</button>
+          <p id="status" class="mt-3 text-success"></p>
+        </form>
+      </div> 
+
+      <!-- Contact Info -->
+       <div class="col-md-6 text-white">
+        <p><strong class="text-info">Address:</strong> NAGERCOIL</p>
+        <p><strong class="text-info">LinkedIn:</strong> MERCY W</p>
+        <p><strong class="text-info">Email:</strong> mercymercy3764@gmail.com</p>
+        <p><strong class="text-info">Instagram:</strong> merczz_._</p>
+      </div>
+    </div>
+  </div>
+</section> 
+
+
+
+
+
+<!-- JS: same functionality -->
+<script>
+const form = document.getElementById("contactForm");
+const status = document.getElementById("status");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  status.textContent = "Sending...";
+
+  const data = {
+    name: form.name.value,
+    email: form.email.value,
+    message: form.message.value
+  };
+
+  try {
+    const res = await fetch("http://localhost:5000/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+    const json = await res.json();
+    if (json.success) {
+      status.textContent = "✅ Message saved!";
+      form.reset();
+    } else {
+      status.textContent = "⚠️ " + json.msg;
+    }
+  } catch (err) {
+    status.textContent = "❌ Network error!";
+  }
+});
+</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
